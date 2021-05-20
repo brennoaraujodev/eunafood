@@ -4,9 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Plano;
+use Illuminate\Support\Str;
 
 class PlanoController extends Controller
 {
+
+
+    //Contrutor
+    private $repositorio;
+
+    public function __construct(Plano $plano)
+    {
+        $this->repositorio = $plano;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +26,9 @@ class PlanoController extends Controller
      */
     public function index()
     {
-        return view('admin.paginas.planos.index');
+        $planos = $this->repositorio->paginate(5);
+
+        return view('admin.paginas.planos.index',['planos' => $planos]);
     }
 
     /**
@@ -24,7 +38,7 @@ class PlanoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.paginas.planos.create');
     }
 
     /**
@@ -35,7 +49,12 @@ class PlanoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['url'] = Str::kebab($request->nome);
+
+        $this->repositorio->create($data);
+
+        return redirect()-> route('planos.index');
     }
 
     /**

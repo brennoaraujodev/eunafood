@@ -3,17 +3,44 @@
 @section('title', 'Planos')
 
 @section('content_header')
-    <h1>Planos</h1>
+    <h1>Planos <a href="{{route('planos.create')}}" class="btn btn-success"> Adicionar</a></h1>
 @stop
 
 @section('content')
-    <p>Olá, qual plano deseja escolher?.</p>
+    <div class="card">
+
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col" width='130'>Saiba mais</th>
+                  </tr>
+                </thead>
+                <tbody>
+                   @foreach ($planos as $plano )
+                        <tr>
+                            <td>
+                                {{$plano->nome}}
+                            </td>
+                            <td>
+                                {{$plano->preco}}
+                            </td>
+                            <td>
+                                <a href="" class="btn btn-info" width='10px'>Clique aqui</a>
+                            </td>
+                        </tr>
+                   @endforeach
+                </tbody>
+              </table>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            {!! $planos->links() !!}
+        </div>
+
+    </div>
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
 
-@section('js')
-    <script> console.log('Hi!'); </script>
-@stop

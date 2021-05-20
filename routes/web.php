@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin/planos', [PlanoController::class, 'index'])->name('planos');
+//Planos
+Route::get('admin/planos', [PlanoController::class, 'index'])->name('planos.index');
+Route::get('admin/planos/cadastrar', [PlanoController::class, 'create'])->name('planos.create');
+Route::post('admin/planos', [PlanoController::class, 'store'])->name('planos.store');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
