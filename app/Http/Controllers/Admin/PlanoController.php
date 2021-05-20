@@ -63,9 +63,14 @@ class PlanoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($url)
     {
-        //
+        $plano = $this->repositorio->where('url', $url)->first();
+
+        if (!$plano)
+            return redirect()->back();
+
+        return view('admin.paginas.planos.show',['plano' => $plano]);
     }
 
     /**
@@ -88,7 +93,7 @@ class PlanoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

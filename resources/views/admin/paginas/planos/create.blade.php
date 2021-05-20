@@ -60,6 +60,6 @@
               </script>
         </div>
     </div>
-@stop
+@endsection
 
 

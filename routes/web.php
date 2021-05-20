@@ -22,5 +22,6 @@ Route::get('/', function () {
 Route::get('admin/planos', [PlanoController::class, 'index'])->name('planos.index');
 Route::get('admin/planos/cadastrar', [PlanoController::class, 'create'])->name('planos.create');
 Route::post('admin/planos', [PlanoController::class, 'store'])->name('planos.store');
+Route::get('admin/planos/{url}', [PlanoController::class, 'show'])->name('planos.show');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
