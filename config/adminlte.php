@@ -225,8 +225,9 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
+            'text' => ' Planos',
             'url'=> 'admin/planos',
+            'icon'=>'fas fa-file-alt',
         ],
 
     ],

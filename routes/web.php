@@ -17,6 +17,8 @@ use App\Http\Controllers\Admin\PlanoController;
 Route::get('/', function () {
     return view('welcome');
 });
+//Dashboard
+Route::get('admin/', [PlanoController::class, 'index'])->name('admin.index');
 
 //Planos
 Route::get('admin/planos', [PlanoController::class, 'index'])->name('planos.index');

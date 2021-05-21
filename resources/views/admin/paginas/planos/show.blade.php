@@ -37,12 +37,12 @@
             <form action="{{route('planos.destroy',$plano->url)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-warning">Editar</button>
+                <button class="btn btn-warning"><i class="fas fa-edit"></i> Editar</button>
             </form>
             <form action="{{route('planos.destroy',$plano->url)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-danger ml-1">Deletar</button>
+                <button class="btn btn-danger ml-1"><i class="fas fa-trash-alt"></i> Deletar</button>
             </form>
         </div>
 

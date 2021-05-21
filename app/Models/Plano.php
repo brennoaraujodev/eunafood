@@ -15,7 +15,7 @@ class Plano extends Model
         $resultado = $this
                           ->where('nome','LIKE',"%{$filtro}%")
                           ->orWhere('descricao','LIKE',"%{$filtro}%")
-                          ->paginate(1);
+                          ->paginate(10);
 
         return $resultado;
     }

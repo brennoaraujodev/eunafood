@@ -35,7 +35,7 @@
                   </div>
                 </div>
 
-                <button class="btn btn-primary" type="submit">Cadastrar</button>
+                <button class="btn btn-success" type="submit"><i class="fas fa-plus-square"></i> Finalizar cadastro</button>
               </form>
 
               <script>
