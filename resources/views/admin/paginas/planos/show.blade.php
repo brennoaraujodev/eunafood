@@ -3,7 +3,7 @@
 @section('title', " Plano {$plano->nome}")
 
 @section('content_header')
-    <h1>Plano {{$plano->nome}} <a href="" class="btn btn-warning">Editar</a> </h1>
+    <h1>Plano {{$plano->nome}} </h1>
 @stop
 
 @section('content')
@@ -32,6 +32,20 @@
                 </tbody>
               </table>
         </div>
+
+        <div class="card-footer form form-inline">
+            <form action="{{route('planos.destroy',$plano->url)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-warning">Editar</button>
+            </form>
+            <form action="{{route('planos.destroy',$plano->url)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger ml-1">Deletar</button>
+            </form>
+        </div>
+
 
     </div>
 @endsection

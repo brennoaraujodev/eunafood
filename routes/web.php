@@ -23,5 +23,7 @@ Route::get('admin/planos', [PlanoController::class, 'index'])->name('planos.inde
 Route::get('admin/planos/cadastrar', [PlanoController::class, 'create'])->name('planos.create');
 Route::post('admin/planos', [PlanoController::class, 'store'])->name('planos.store');
 Route::get('admin/planos/{url}', [PlanoController::class, 'show'])->name('planos.show');
+Route::delete('admin/planos/{url}', [PlanoController::class, 'destroy'])->name('planos.destroy');
+Route::any('admin/plano/pesquisar', [PlanoController::class, 'search'])->name('planos.search');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

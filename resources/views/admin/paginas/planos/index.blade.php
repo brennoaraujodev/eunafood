@@ -8,7 +8,13 @@
 
 @section('content')
     <div class="card">
-
+        <div class="card-header">
+            <form action="{{route('planos.search')}}" method="POST" class="form form-inline">
+                @csrf
+                <input type="text" name="filtro" placeholder="Nome do plano" class="form-control">
+                <button type="submit" class="btn btn-primary ml-1">Filtrar</button>
+            </form>
+        </div>
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
@@ -35,10 +41,18 @@
                 </tbody>
               </table>
         </div>
+        @if (isset($filtros))
+            <div class="row d-flex justify-content-center">
+                {!! $planos->appends($filtros)->links() !!}
+            </div>
 
-        <div class="row d-flex justify-content-center">
-            {!! $planos->links() !!}
-        </div>
+        @else
+            <div class="row d-flex justify-content-center">
+                {!! $planos->links() !!}
+
+            </div>
+        @endif
+
 
     </div>
 @endsection

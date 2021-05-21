@@ -102,8 +102,29 @@ class PlanoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($url)
     {
-        //
+        $plano = $this->repositorio->where('url',$url)->first();
+
+        if (!$plano)
+            return redirect()->back();
+
+        $plano->delete();
+
+        return redirect()->route('planos.index');
+    }
+
+    public function search(Request $request)
+    {
+
+        $filtros =  $request->except('_token');
+
+        $planos = $this->repositorio->pesquisar($request->filtro);
+
+        return view('admin.paginas.planos.index',
+        [
+            'planos' => $planos,
+            'filtros' => $filtros,
+        ]);
     }
 }
