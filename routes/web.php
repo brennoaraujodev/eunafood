@@ -27,5 +27,7 @@ Route::post('admin/planos', [PlanoController::class, 'store'])->name('planos.sto
 Route::get('admin/planos/{url}', [PlanoController::class, 'show'])->name('planos.show');
 Route::delete('admin/planos/{url}', [PlanoController::class, 'destroy'])->name('planos.destroy');
 Route::any('admin/plano/pesquisar', [PlanoController::class, 'search'])->name('planos.search');
+Route::get('admin/plano/{url}/editar', [PlanoController::class, 'edit'])->name('planos.edit');
+Route::put('admin/plano/{url}', [PlanoController::class, 'update'])->name('planos.update');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

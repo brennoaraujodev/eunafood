@@ -34,11 +34,7 @@
         </div>
 
         <div class="card-footer form form-inline">
-            <form action="{{route('planos.destroy',$plano->url)}}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-warning"><i class="fas fa-edit"></i> Editar</button>
-            </form>
+            <a href="{{route('planos.edit',$plano->url)}}" class="btn btn-warning" width='20px'><i class="fas fa-edit"></i> Editar</a>
             <form action="{{route('planos.destroy',$plano->url)}}" method="POST">
                 @csrf
                 @method('DELETE')
