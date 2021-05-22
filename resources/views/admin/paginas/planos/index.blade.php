@@ -28,7 +28,7 @@
                   <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Preço</th>
-                    <th scope="col" width='300'>Opções</th>
+                    <th scope="col" width='200'>Opções</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -41,8 +41,8 @@
                                 {{number_format($plano->preco,2,',','.')}}
                             </td>
                             <td>
-                                <a href="{{route('planos.show',$plano->url)}}" class="btn btn-info" width='20px'><i class="fas fa-file-alt"></i> Abrir</a>
-                                <a href="{{route('planos.edit',$plano->url)}}" class="btn btn-warning" width='20px'><i class="fas fa-edit"></i> Editar</a>
+                                <a href="{{route('planos.show',$plano->url)}}" class="btn btn-info"><i class="fas fa-file-alt"></i> Abrir</a>
+                                <a href="{{route('planos.edit',$plano->url)}}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
                             </td>
                         </tr>
                    @endforeach

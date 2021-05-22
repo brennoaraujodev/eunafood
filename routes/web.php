@@ -20,14 +20,19 @@ Route::get('/', function () {
 //Dashboard
 Route::get('admin/', [PlanoController::class, 'index'])->name('admin.index');
 
-//Planos
-Route::get('admin/planos', [PlanoController::class, 'index'])->name('planos.index');
-Route::get('admin/planos/cadastrar', [PlanoController::class, 'create'])->name('planos.create');
-Route::post('admin/planos', [PlanoController::class, 'store'])->name('planos.store');
-Route::any('admin/planos/pesquisar', [PlanoController::class, 'search'])->name('planos.search');
-Route::get('admin/planos/{url}', [PlanoController::class, 'show'])->name('planos.show');
-Route::delete('admin/planos/{url}', [PlanoController::class, 'destroy'])->name('planos.destroy');
-Route::get('admin/planos/{url}/editar', [PlanoController::class, 'edit'])->name('planos.edit');
-Route::put('admin/planos/{url}', [PlanoController::class, 'update'])->name('planos.update');
+
+Route::prefix('admin')->group(function()
+    {
+    //Planos
+    Route::get('planos', [PlanoController::class, 'index'])->name('planos.index');
+    Route::get('planos/cadastrar', [PlanoController::class, 'create'])->name('planos.create');
+    Route::post('planos', [PlanoController::class, 'store'])->name('planos.store');
+    Route::any('planos/pesquisar', [PlanoController::class, 'search'])->name('planos.search');
+    Route::get('planos/{url}', [PlanoController::class, 'show'])->name('planos.show');
+    Route::delete('planos/{url}', [PlanoController::class, 'destroy'])->name('planos.destroy');
+    Route::get('planos/{url}/editar', [PlanoController::class, 'edit'])->name('planos.edit');
+    Route::put('planos/{url}', [PlanoController::class, 'update'])->name('planos.update');
+    });
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
