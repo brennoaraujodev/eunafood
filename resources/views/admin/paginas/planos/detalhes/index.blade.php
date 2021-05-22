@@ -1,16 +1,18 @@
 @extends('adminlte::page')
 
-@section('title', 'Planos')
+@section('title', "Detalhe do plano {{$plano->nome}}")
 
 @section('content_header')
-    <h1>Planos <a href="{{route('planos.create')}}" class="btn btn-success"> <i class="fas fa-plus-square"></i> Cadastrar</a></h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Dashboard</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Planos</li>
+            <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Dashboard</a></li>
+            <li class="breadcrumb-item" aria-current="page"> <a href="{{route('planos.index',$plano->url)}}">Planos</a></li>
+            <li class="breadcrumb-item" aria-current="page"> <a href="{{route('planos.show',$plano->url)}}">{{$plano->nome}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Detalhes</li>
         </ol>
-      </nav>
+    </nav>
 
+    <h1>Detalhes do Plano {{$plano->nome}} <a href="{{route('planos.create')}}" class="btn btn-success"> <i class="fas fa-plus-square"></i> Cadastrar</a></h1>
 @stop
 
 @section('content')
@@ -27,21 +29,16 @@
                 <thead>
                   <tr>
                     <th scope="col">Nome</th>
-                    <th scope="col">Preço</th>
-                    <th scope="col" width='300'>Opções</th>
+                    <th scope="col" width='200'>Opções</th>
                   </tr>
                 </thead>
                 <tbody>
-                   @foreach ($planos as $plano )
+                   @foreach ($detalhes as $detalhe )
                         <tr>
                             <td>
-                                {{$plano->nome}}
+                                {{$detalhe->nome}}
                             </td>
                             <td>
-                                {{number_format($plano->preco,2,',','.')}}
-                            </td>
-                            <td>
-                                <a href="{{route('planosdetalhes.index',$plano->url)}}" class="btn btn-primary"><i class="fas fa-file-alt"></i> Detalhes</a>
                                 <a href="{{route('planos.show',$plano->url)}}" class="btn btn-info"><i class="fas fa-file-alt"></i> Abrir</a>
                                 <a href="{{route('planos.edit',$plano->url)}}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
                             </td>
@@ -52,12 +49,12 @@
         </div>
         @if (isset($filtros))
             <div class="row d-flex justify-content-center">
-                {!! $planos->appends($filtros)->links() !!}
+                {!! $detalhes->appends($filtros)->links() !!}
             </div>
 
         @else
             <div class="row d-flex justify-content-center">
-                {!! $planos->links() !!}
+                {!! $detalhes->links() !!}
 
             </div>
         @endif

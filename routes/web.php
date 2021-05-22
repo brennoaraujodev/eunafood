@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PlanoController;
+use App\Http\Controllers\Admin\PlanoDetalheController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +18,16 @@ use App\Http\Controllers\Admin\PlanoController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 //Dashboard
 Route::get('admin/', [PlanoController::class, 'index'])->name('admin.index');
 
-
+//Prefixo Admin
 Route::prefix('admin')->group(function()
     {
+    //Planos Detalhes
+    Route::get('planos/{url}/detalhes', [PlanoDetalheController::class, 'index'])->name('planosdetalhes.index');
+
     //Planos
     Route::get('planos', [PlanoController::class, 'index'])->name('planos.index');
     Route::get('planos/cadastrar', [PlanoController::class, 'create'])->name('planos.create');
@@ -32,7 +37,10 @@ Route::prefix('admin')->group(function()
     Route::delete('planos/{url}', [PlanoController::class, 'destroy'])->name('planos.destroy');
     Route::get('planos/{url}/editar', [PlanoController::class, 'edit'])->name('planos.edit');
     Route::put('planos/{url}', [PlanoController::class, 'update'])->name('planos.update');
+
+
     });
+
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
