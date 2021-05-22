@@ -43,10 +43,7 @@ class PlanoController extends Controller
 
     public function store(StoreUpdatePlano $request)
     {
-        $data = $request->all();
-        $data['url'] = Str::kebab($request->nome);
-
-        $this->repositorio->create($data);
+        $this->repositorio->create($request->all());
 
         return redirect()-> route('planos.index');
     }
