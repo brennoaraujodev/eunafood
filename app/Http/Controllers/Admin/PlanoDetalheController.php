@@ -77,17 +77,36 @@ class PlanoDetalheController extends Controller
 
 
 
-    public function edit($id)
+    public function edit($planoUrl, $idDetalhe)
     {
-        //
+        $plano = $this->plano->where('url',$planoUrl)->first();
+        $detalhe =$this->repositorio->find($idDetalhe);
+        if (!$plano || !$detalhe)
+        {
+            return redirect()->back();
+        }
+
+        return view('admin.paginas.planos.detalhes.edit',[
+            'plano' => $plano,
+            'detalhe' => $detalhe,
+        ]);
     }
 
 
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $planoUrl, $idDetalhe)
     {
-        //
+        $plano = $this->plano->where('url',$planoUrl)->first();
+        $detalhe =$this->repositorio->find($idDetalhe);
+        if (!$plano || !$detalhe)
+        {
+            return redirect()->back();
+        }
+
+        $detalhe->update($request->all());
+
+        return redirect(route('planosdetalhes.index',$plano->url));
     }
 
 

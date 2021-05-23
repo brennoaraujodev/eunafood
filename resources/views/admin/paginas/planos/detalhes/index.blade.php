@@ -1,18 +1,18 @@
 @extends('adminlte::page')
 
-@section('title', "Detalhe do plano {{$plano->nome}}")
+@section('title', "Detalhe do plano {$plano->nome}")
 
 @section('content_header')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Dashboard</a></li>
-            <li class="breadcrumb-item" aria-current="page"> <a href="{{route('planos.index',$plano->url)}}">Planos</a></li>
-            <li class="breadcrumb-item" aria-current="page"> <a href="{{route('planos.show',$plano->url)}}">{{$plano->nome}}</a></li>
+            <li class="breadcrumb-item" aria-current="page"> <a href="{{route('planosdetalhes.index',$plano->url)}}">Planos</a></li>
+
             <li class="breadcrumb-item active" aria-current="page">Detalhes</li>
         </ol>
     </nav>
 
-    <h1>Detalhes do Plano {{$plano->nome}} <a href="{{route('planosdetalhes.create',$plano->url)}}" class="btn btn-success"> <i class="fas fa-plus-square"></i> Cadastrar</a></h1>
+    <h1>Detalhes do Plano: {{$plano->nome}} <a href="{{route('planosdetalhes.create',$plano->url)}}" class="btn btn-success"> <i class="fas fa-plus-square"></i> Cadastrar</a></h1>
 @stop
 
 @section('content')
@@ -29,18 +29,18 @@
                 <thead>
                   <tr>
                     <th scope="col">Nome</th>
-                    <th scope="col" width='200'>Opções</th>
+                    <th scope="col" width='205'>Opções</th>
                   </tr>
                 </thead>
                 <tbody>
-                   @foreach ($detalhes as $detalhe )
+                   @foreach ($detalhes as $detalhe)
                         <tr>
                             <td>
                                 {{$detalhe->nome}}
                             </td>
                             <td>
-                                <a href="{{route('planos.show',$plano->url)}}" class="btn btn-info"><i class="fas fa-file-alt"></i> Abrir</a>
-                                <a href="{{route('planos.edit',$plano->url)}}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+                                <a href="{{route('planosdetalhes.edit',[$plano->url,  $detalhe->id])}}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+                                <a href="{{route('planosdetalhes.show',[$plano->url, $detalhe->id])}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Excluir</a>
                             </td>
                         </tr>
                    @endforeach
