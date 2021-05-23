@@ -12,7 +12,7 @@
         </ol>
     </nav>
 
-    <h1>Detalhes do Plano {{$plano->nome}} <a href="{{route('planos.create')}}" class="btn btn-success"> <i class="fas fa-plus-square"></i> Cadastrar</a></h1>
+    <h1>Detalhes do Plano {{$plano->nome}} <a href="{{route('planosdetalhes.create',$plano->url)}}" class="btn btn-success"> <i class="fas fa-plus-square"></i> Cadastrar</a></h1>
 @stop
 
 @section('content')

@@ -21,7 +21,8 @@ class PlanoDetalheController extends Controller
     public function index($planoUrl)
     {
         $plano = $this->plano->where('url',$planoUrl)->first();
-        if (!$plano) {
+        if (!$plano)
+        {
             return redirect()->back();
         }
         $detalhes = $plano->detalhes()->paginate();
@@ -35,17 +36,34 @@ class PlanoDetalheController extends Controller
 
 
 
-    public function create()
+    public function create($planoUrl)
     {
-        //
+        $plano = $this->plano->where('url',$planoUrl)->first();
+        if (!$plano)
+        {
+            return redirect()->back();
+        }
+        return view('admin.paginas.planos.detalhes.create',[
+           'plano'=>$plano,
+        ]);
     }
 
 
 
 
-    public function store(Request $request)
+    public function store(Request $request, $planoUrl)
     {
-        //
+
+        $plano = $this->plano->where('url',$planoUrl)->first();
+        if (!$plano)
+        {
+            return redirect()->back();
+        }
+
+        $plano->detalhes()->create(request()->all());
+
+        return redirect(route('planosdetalhes.index',$plano->url));
+
     }
 
 

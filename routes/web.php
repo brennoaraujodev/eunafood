@@ -27,6 +27,8 @@ Route::prefix('admin')->group(function()
     {
     //Planos Detalhes
     Route::get('planos/{url}/detalhes', [PlanoDetalheController::class, 'index'])->name('planosdetalhes.index');
+    Route::get('planos/{url}/detalhes/cadastrar', [PlanoDetalheController::class, 'create'])->name('planosdetalhes.create');
+    Route::post('planos/{url}/detalhes', [PlanoDetalheController::class, 'store'])->name('planosdetalhes.store');
 
     //Planos
     Route::get('planos', [PlanoController::class, 'index'])->name('planos.index');

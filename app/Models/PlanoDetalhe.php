@@ -9,6 +9,8 @@ class PlanoDetalhe extends Model
 {
     use HasFactory;
 
+    protected $fillable=['nome'];
+
     public function plano()
     {
         $this->belongsTo(Plano::class);
