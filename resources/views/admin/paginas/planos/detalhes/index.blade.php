@@ -16,7 +16,9 @@
 @stop
 
 @section('content')
+
     <div class="card">
+        @include('admin.includes.alerts')
         <div class="card-header">
             <form action="{{route('planos.search')}}" method="POST" class="form form-inline">
                 @csrf
@@ -39,8 +41,8 @@
                                 {{$detalhe->nome}}
                             </td>
                             <td>
+                                <a href="{{route('planosdetalhes.show',[$plano->url, $detalhe->id])}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Abrir</a>
                                 <a href="{{route('planosdetalhes.edit',[$plano->url,  $detalhe->id])}}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
-                                <a href="{{route('planosdetalhes.show',[$plano->url, $detalhe->id])}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Excluir</a>
                             </td>
                         </tr>
                    @endforeach
