@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Plano;
 use App\Models\PlanoDetalhe;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUpdatePlanoDetalhe;
 
 class PlanoDetalheController extends Controller
 {
@@ -51,7 +52,7 @@ class PlanoDetalheController extends Controller
 
 
 
-    public function store(Request $request, $planoUrl)
+    public function store(StoreUpdatePlanoDetalhe $request, $planoUrl)
     {
 
         $plano = $this->plano->where('url',$planoUrl)->first();
@@ -95,7 +96,7 @@ class PlanoDetalheController extends Controller
 
 
 
-    public function update(Request $request, $planoUrl, $idDetalhe)
+    public function update(StoreUpdatePlanoDetalhe $request, $planoUrl, $idDetalhe)
     {
         $plano = $this->plano->where('url',$planoUrl)->first();
         $detalhe =$this->repositorio->find($idDetalhe);

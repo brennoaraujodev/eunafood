@@ -28,7 +28,7 @@
             <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">Nome</th>
+                    <th scope="col">Detalhe</th>
                     <th scope="col" width='205'>Opções</th>
                   </tr>
                 </thead>
