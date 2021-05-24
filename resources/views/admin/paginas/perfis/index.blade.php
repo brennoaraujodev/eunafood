@@ -41,7 +41,7 @@
                                 {{$perfil->descricao}}
                             </td>
                             <td>
-                                <a href="{{route('perfisdetalhes.index',$perfil->id)}}" class="btn btn-primary"><i class="fas fa-file-alt"></i> Detalhes</a>
+                                <a href="{{route('perfis.index',$perfil->id)}}" class="btn btn-primary" ><i class="fas fa-file-alt"></i> Detalhes</a>
                                 <a href="{{route('perfis.show',$perfil->id)}}" class="btn btn-info"><i class="fas fa-file-alt"></i> Abrir</a>
                                 <a href="{{route('perfis.edit',$perfil->id)}}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
                             </td>

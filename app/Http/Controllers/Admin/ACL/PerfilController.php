@@ -44,7 +44,9 @@ class PerfilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->repositorio->create($request->all());
+
+        return redirect()->route('perfis.index');
     }
 
     /**
