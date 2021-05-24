@@ -33,7 +33,7 @@ class PerfilController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.paginas.perfis.create');
     }
 
     /**
