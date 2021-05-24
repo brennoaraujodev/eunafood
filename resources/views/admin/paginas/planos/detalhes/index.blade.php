@@ -41,7 +41,7 @@
                                 {{$detalhe->nome}}
                             </td>
                             <td>
-                                <a href="{{route('planosdetalhes.show',[$plano->url, $detalhe->id])}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Abrir</a>
+                                <a href="{{route('planosdetalhes.show',[$plano->url, $detalhe->id])}}" class="btn btn-info"><i class="fas fa-file-alt"></i> Abrir</a>
                                 <a href="{{route('planosdetalhes.edit',[$plano->url,  $detalhe->id])}}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
                             </td>
                         </tr>
