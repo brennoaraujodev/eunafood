@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PlanoController;
 use App\Http\Controllers\Admin\PlanoDetalheController;
+use App\Http\Controllers\Admin\ACL\PerfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,6 @@ Route::prefix('admin')->group(function()
     Route::get('planos/{url}/detalhes/{idDetalhe}/editar', [PlanoDetalheController::class, 'edit'])->name('planosdetalhes.edit');
     Route::put('planos/{url}/detalhes/{idDetalhe}', [PlanoDetalheController::class, 'update'])->name('planosdetalhes.update');
 
-
     //Planos
     Route::get('planos', [PlanoController::class, 'index'])->name('planos.index');
     Route::get('planos/cadastrar', [PlanoController::class, 'create'])->name('planos.create');
@@ -45,6 +45,8 @@ Route::prefix('admin')->group(function()
     Route::get('planos/{url}/editar', [PlanoController::class, 'edit'])->name('planos.edit');
     Route::put('planos/{url}', [PlanoController::class, 'update'])->name('planos.update');
 
+    //Perfis
+    Route::resource('perfis', PerfilController::class);
 
     });
 

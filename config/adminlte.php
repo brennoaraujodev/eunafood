@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'card-outline card-secundary',
     'classes_auth_header' => '',
     'classes_auth_body' => '',
     'classes_auth_footer' => '',
@@ -224,6 +224,11 @@ return [
     */
 
     'menu' => [
+        [
+            'text' => ' Perfis',
+            'url'=> 'admin/perfis',
+            'icon'=>'fas fa-users',
+        ],
         [
             'text' => ' Planos',
             'url'=> 'admin/planos',
