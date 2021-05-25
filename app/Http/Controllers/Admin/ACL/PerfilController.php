@@ -57,7 +57,8 @@ class PerfilController extends Controller
      */
     public function show($id)
     {
-        //
+        $perfil = $this->repositorio->where('id',$id)->first();
+        return view('admin.paginas.perfis.show',['perfil'=>$perfil]);
     }
 
     /**
