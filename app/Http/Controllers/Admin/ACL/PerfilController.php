@@ -57,10 +57,12 @@ class PerfilController extends Controller
      */
     public function show($id)
     {
-        $perfil = $this->repositorio->where('id',$id)->first();
+        if (!$perfil = $this->repositorio->find($id))
+        {
+            return redirect()->back();
+        }
         return view('admin.paginas.perfis.show',['perfil'=>$perfil]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -69,7 +71,11 @@ class PerfilController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (!$perfil = $this->repositorio->find($id))
+        {
+            return redirect()->back();
+        }
+        return view('admin.paginas.perfis.edit',['perfil'=>$perfil]);
     }
 
     /**
