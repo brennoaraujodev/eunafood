@@ -87,9 +87,13 @@ class PerfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (!$perfil = $this->repositorio->find($id))
+        {
+            return redirect()->back();
+        }
+        $perfil->update($request->all());
+        return view('admin.paginas.perfis.show',['perfil'=>$perfil]);
     }
-
     /**
      * Remove the specified resource from storage.
      *
