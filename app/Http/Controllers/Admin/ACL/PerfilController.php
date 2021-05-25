@@ -102,6 +102,14 @@ class PerfilController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (!$perfil = $this->repositorio->find($id))
+        {
+            return redirect()->back();
+        }
+        $perfil->delete();
+
+        return redirect()
+                         ->route('perfis.index')
+                         ->with('msg',"Perfil: {$perfil->nome} excluido com sucesso!");
     }
 }
