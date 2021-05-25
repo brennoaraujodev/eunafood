@@ -22,8 +22,6 @@
         <div class="card-header">
             <form action="{{route('planos.search')}}" method="POST" class="form form-inline">
                 @csrf
-                <input type="text" name="filtro" placeholder="Nome do plano" value="{{$filtros['filtro'] ?? ''}}" class="form-control">
-                <button type="submit" class="btn btn-primary ml-1">Filtrar</button>
             </form>
         </div>
         <div class="card-body">

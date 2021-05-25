@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\ACL;
 
 use App\Http\Controllers\Controller;
 use App\Models\Perfil;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreUpdatePerfil;
 
 class PerfilController extends Controller
 {
@@ -42,7 +42,7 @@ class PerfilController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdatePerfil $request)
     {
         $this->repositorio->create($request->all());
 
@@ -85,7 +85,7 @@ class PerfilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreUpdatePerfil $request, $id)
     {
         if (!$perfil = $this->repositorio->find($id))
         {
