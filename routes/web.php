@@ -46,6 +46,7 @@ Route::prefix('admin')->group(function()
     Route::put('planos/{url}', [PlanoController::class, 'update'])->name('planos.update');
 
     //Perfis
+    Route::any('perfis/search', [PerfilController::class, 'search'])->name('perfis.search');
     Route::resource('perfis', PerfilController::class);
 
     });

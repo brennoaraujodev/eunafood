@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\ACL;
 use App\Http\Controllers\Controller;
 use App\Models\Perfil;
 use App\Http\Requests\StoreUpdatePerfil;
+use Illuminate\Http\Request;
 
 class PerfilController extends Controller
 {
@@ -111,5 +112,20 @@ class PerfilController extends Controller
         return redirect()
                          ->route('perfis.index')
                          ->with('msg',"Perfil: {$perfil->nome} excluido com sucesso!");
+    }
+
+
+    /**
+     * Search
+     */
+    public function search(Request $request){
+
+        $filtros =  $request->except('_token');
+        $perfis = $this->repositorio->pesquisar($request->filtro);
+
+        return view('admin.paginas.perfis.index',[
+            'filtros'=>$filtros,
+            'perfis'=>$perfis,
+        ]);
     }
 }

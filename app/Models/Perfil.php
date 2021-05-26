@@ -12,4 +12,14 @@ class Perfil extends Model
     protected $table = 'perfis';
     protected $fillable = ['nome', 'descricao'];
 
+    public function pesquisar($filtro = null)
+    {
+        $resultado = $this
+                          ->where('nome','LIKE',"%{$filtro}%")
+                          ->orWhere('descricao','LIKE',"%{$filtro}%")
+                          ->paginate(10);
+
+        return $resultado;
+    }
+
 }

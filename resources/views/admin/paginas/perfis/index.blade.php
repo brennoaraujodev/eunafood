@@ -17,7 +17,7 @@
     <div class="card">
         @include('admin.includes.alerts')
         <div class="card-header">
-            <form action="{{route('perfis.index')}}" method="POST" class="form form-inline">
+            <form action="{{route('perfis.search')}}" method="POST" class="form form-inline">
                 @csrf
                 <input type="text" name="filtro" placeholder="Nome do perfil" value="{{$filtros['filtro'] ?? ''}}" class="form-control">
                 <button type="submit" class="btn btn-primary ml-1">Filtrar</button>
@@ -42,7 +42,6 @@
                                 {{$perfil->descricao}}
                             </td>
                             <td>
-                                <a href="{{route('perfis.index',$perfil->id)}}" class="btn btn-primary" ><i class="fas fa-file-alt"></i> Detalhes</a>
                                 <a href="{{route('perfis.show',$perfil->id)}}" class="btn btn-info"><i class="fas fa-file-alt"></i> Abrir</a>
                                 <a href="{{route('perfis.edit',$perfil->id)}}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
                             </td>
