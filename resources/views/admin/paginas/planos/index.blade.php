@@ -19,7 +19,7 @@
             <form action="{{route('planos.search')}}" method="POST" class="form form-inline">
                 @csrf
                 <input type="text" name="filtro" placeholder="Nome do plano" value="{{$filtros['filtro'] ?? ''}}" class="form-control">
-                <button type="submit" class="btn btn-primary ml-1">Filtrar</button>
+                <button type="submit" class="btn btn-primary ml-1"><i class="fas fa-search"></i> Filtrar</button>
             </form>
         </div>
         <div class="card-body">
@@ -28,7 +28,7 @@
                   <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Preço</th>
-                    <th scope="col" width='300'>Opções</th>
+                    <th scope="col" width='170'>Opções</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -41,9 +41,9 @@
                                 {{number_format($plano->preco,2,',','.')}}
                             </td>
                             <td>
-                                <a href="{{route('planosdetalhes.index',$plano->url)}}" class="btn btn-primary"><i class="fas fa-file-alt"></i> Detalhes</a>
-                                <a href="{{route('planos.show',$plano->url)}}" class="btn btn-info"><i class="fas fa-file-alt"></i> Abrir</a>
-                                <a href="{{route('planos.edit',$plano->url)}}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+                                <a href="{{route('planosdetalhes.index',$plano->url)}}" class="btn btn-primary"><i class="fas fa-file-alt"></i></a>
+                                <a href="{{route('planos.show',$plano->url)}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                <a href="{{route('planos.edit',$plano->url)}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                             </td>
                         </tr>
                    @endforeach

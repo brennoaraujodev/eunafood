@@ -234,6 +234,11 @@ return [
             'url'=> 'admin/planos',
             'icon'=>'fas fa-file-alt',
         ],
+        [
+            'text' => ' Permissões',
+            'url'=> 'admin/permissoes',
+            'icon'=>'fas fa-user-lock',
+        ],
 
     ],
 

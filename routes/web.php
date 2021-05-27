@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PlanoController;
 use App\Http\Controllers\Admin\PlanoDetalheController;
 use App\Http\Controllers\Admin\ACL\PerfilController;
+use App\Http\Controllers\Admin\ACL\PermissaoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,10 @@ Route::prefix('admin')->group(function()
     //Perfis
     Route::any('perfis/search', [PerfilController::class, 'search'])->name('perfis.search');
     Route::resource('perfis', PerfilController::class);
+
+    //Permissões
+    Route::any('permissoes/search', [PermissaoController::class, 'search'])->name('permissoes.search');
+    Route::resource('permissoes', PermissaoController::class);
 
     });
 
