@@ -7,7 +7,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Dashboard</a></li>
-          <li class="breadcrumb-item active" aria-current="page">permissoes</li>
+          <li class="breadcrumb-item active" aria-current="page">Permissoes</li>
         </ol>
       </nav>
 
@@ -19,8 +19,8 @@
         <div class="card-header">
             <form action="{{route('permissoes.search')}}" method="POST" class="form form-inline">
                 @csrf
-                <input type="text" name="filtro" placeholder="Nome da permissao" value="{{$filtros['filtro'] ?? ''}}" class="form-control">
-                <button type="submit" class="btn btn-primary ml-1"><i class="fas fa-search"></i> Filtrar</button>
+                <input type="text" name="filtro" placeholder="Nome da permissao" value="{{$filtros['filtro'] ?? ''}}" class="form-control ml-1 mr-1 mb-1 mt-1">
+                <button type="submit" class="btn btn-primary ml-1 mr-1 mb-1 mt-1"><i class="fas fa-search"></i></button>
             </form>
         </div>
         <div class="card-body">
