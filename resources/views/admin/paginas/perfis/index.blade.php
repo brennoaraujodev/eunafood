@@ -3,7 +3,7 @@
 @section('title', 'Perfis')
 
 @section('content_header')
-    <h1>perfis <a href="{{route('perfis.create')}}" class="btn btn-success"> <i class="fas fa-plus-square"></i> Cadastrar</a></h1>
+    <h1>Perfis <a href="{{route('perfis.create')}}" class="btn btn-success"> <i class="fas fa-plus-square"></i> Cadastrar</a></h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Dashboard</a></li>

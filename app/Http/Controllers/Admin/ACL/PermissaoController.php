@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\ACL;
 use App\Http\Controllers\Controller;
 use App\Models\Permissao;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUpdatePermissao;
 
 class PermissaoController extends Controller
 {
@@ -44,7 +45,7 @@ class PermissaoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdatePermissao $request)
     {
         $permissao = $this->repositorio->create($request->all());
 
@@ -88,7 +89,7 @@ class PermissaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreUpdatePermissao $request, $id)
     {
         if (!$permissao = $this->repositorio->find($id))
         {
@@ -121,7 +122,7 @@ class PermissaoController extends Controller
     /**
      * Search
      */
-    public function search(Request $request){
+    public function search(StoreUpdatePermissao $request){
 
         $filtros =  $request->except('_token');
         $permissoes = $this->repositorio->pesquisar($request->filtro);
