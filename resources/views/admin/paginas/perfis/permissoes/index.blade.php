@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Perfis')
+@section('title', "Permissões do Perfil '{$perfil->nome}'")
 
 @section('content_header')
-    <h1>Perfis <a href="{{route('perfis.create')}}" class="btn btn-success"> <i class="fas fa-plus-square"></i> Cadastrar</a></h1>
+    <h1>Permissões do Perfil '{{$perfil->nome}}' <a href="{{route('permissoes.create')}}" class="btn btn-success"> <i class="fas fa-plus-square"></i> Cadastrar</a></h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Dashboard</a></li>
-          <li class="breadcrumb-item active" aria-current="page">perfis</li>
+          <li class="breadcrumb-item active" aria-current="page">permissoes</li>
         </ol>
       </nav>
 
@@ -17,9 +17,9 @@
     <div class="card">
         @include('admin.includes.alerts')
         <div class="card-header">
-            <form action="{{route('perfis.search')}}" method="POST" class="form form-inline">
+            <form action="{{route('permissoes.search')}}" method="POST" class="form form-inline">
                 @csrf
-                <input type="text" name="filtro" placeholder="Nome do perfil" value="{{$filtros['filtro'] ?? ''}}" class="form-control ml-1 mr-1 mb-1 mt-1">
+                <input type="text" name="filtro" placeholder="Nome do permissao" value="{{$filtros['filtro'] ?? ''}}" class="form-control ml-1 mr-1 mb-1 mt-1">
                 <button type="submit" class="btn btn-primary ml-1 mr-1 mb-1 mt-1"><i class="fas fa-search"></i></button>
             </form>
         </div>
@@ -33,18 +33,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                   @foreach ($perfis as $perfil )
+                   @foreach ($permissoes as $permissao )
                         <tr>
                             <td>
-                                {{$perfil->nome}}
+                                {{$permissao->nome}}
                             </td>
                             <td>
-                                {{$perfil->descricao}}
+                                {{$permissao->descricao}}
                             </td>
                             <td>
-                                <a href="{{route('perfis.show',$perfil->id)}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                                <a href="{{route('perfis.edit',$perfil->id)}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="{{route('perfis.permissoes.index',$perfil->id)}}" class="btn btn-danger"><i class="fas fa-user-lock"></i></a>
+                                <a href="{{route('permissoes.show',$permissao->id)}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                <a href="{{route('permissoes.edit',$permissao->id)}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="{{route('permissoes.edit',$permissao->id)}}" class="btn btn-danger"><i class="fas fa-user-lock"></i></a>
                             </td>
                         </tr>
                    @endforeach
@@ -53,12 +53,12 @@
         </div>
         @if (isset($filtros))
             <div class="row d-flex justify-content-center">
-                {!! $perfis->appends($filtros)->links() !!}
+                {!! $permissoes->appends($filtros)->links() !!}
             </div>
 
         @else
             <div class="row d-flex justify-content-center">
-                {!! $perfis->links() !!}
+                {!! $permissoes->links() !!}
 
             </div>
         @endif

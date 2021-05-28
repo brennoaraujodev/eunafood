@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\PlanoController;
 use App\Http\Controllers\Admin\PlanoDetalheController;
 use App\Http\Controllers\Admin\ACL\PerfilController;
 use App\Http\Controllers\Admin\ACL\PermissaoController;
+use App\Http\Controllers\Admin\ACL\PerfilPermissaoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,9 @@ Route::prefix('admin')->group(function()
     Route::delete('planos/{url}', [PlanoController::class, 'destroy'])->name('planos.destroy');
     Route::get('planos/{url}/editar', [PlanoController::class, 'edit'])->name('planos.edit');
     Route::put('planos/{url}', [PlanoController::class, 'update'])->name('planos.update');
+
+    //Perfis x Permissões
+    Route::get('perfil/{id}/permissoes', [PerfilPermissaoController::class, 'index'])->name('perfis.permissoes.index');
 
     //Perfis
     Route::any('perfis/search', [PerfilController::class, 'search'])->name('perfis.search');

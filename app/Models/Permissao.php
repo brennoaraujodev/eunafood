@@ -12,6 +12,7 @@ class Permissao extends Model
     protected $table = 'permissoes';
     protected $fillable = ['nome', 'descricao'];
 
+    //Consulta por nome e descrição
     public function pesquisar($filtro = null)
     {
         $resultado = $this
@@ -20,5 +21,10 @@ class Permissao extends Model
                           ->paginate(10);
 
         return $resultado;
+    }
+
+    //Buscar perfis
+    public function perfis(){
+        return $this->belongsToMany(Perfil::class,'perfil_permissao');
     }
 }

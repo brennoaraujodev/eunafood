@@ -14,12 +14,19 @@ class Perfil extends Model
 
     public function pesquisar($filtro = null)
     {
+
+        //consulta por nome e descrição
         $resultado = $this
                           ->where('nome','LIKE',"%{$filtro}%")
                           ->orWhere('descricao','LIKE',"%{$filtro}%")
                           ->paginate(10);
 
         return $resultado;
+    }
+
+    //Buscar permissões
+    public function permissoes(){
+        return $this->belongsToMany(Permissao::class,'perfil_permissao');
     }
 
 }
