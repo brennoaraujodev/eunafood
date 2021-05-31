@@ -48,7 +48,10 @@ Route::prefix('admin')->group(function()
     Route::put('planos/{url}', [PlanoController::class, 'update'])->name('planos.update');
 
     //Perfis x Permissões
+    Route::post('perfil/{id}/permissoes/store', [PerfilPermissaoController::class, 'store'])->name('perfis.permissoes.store');
+    Route::get('perfil/{id}/permissoes/create', [PerfilPermissaoController::class, 'create'])->name('perfis.permissoes.create');
     Route::get('perfil/{id}/permissoes', [PerfilPermissaoController::class, 'index'])->name('perfis.permissoes.index');
+
 
     //Perfis
     Route::any('perfis/search', [PerfilController::class, 'search'])->name('perfis.search');

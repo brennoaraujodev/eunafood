@@ -225,15 +225,17 @@ return [
 
     'menu' => [
         [
-            'text' => ' Perfis',
-            'url'=> 'admin/perfis',
-            'icon'=>'fas fa-users',
-        ],
-        [
             'text' => ' Planos',
             'url'=> 'admin/planos',
             'icon'=>'fas fa-file-alt',
         ],
+
+        [
+            'text' => ' Perfis',
+            'url'=> 'admin/perfis',
+            'icon'=>'fas fa-users',
+        ],
+
         [
             'text' => ' Permissões',
             'url'=> 'admin/permissoes',

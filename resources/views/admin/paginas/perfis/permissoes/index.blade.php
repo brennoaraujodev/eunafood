@@ -3,7 +3,7 @@
 @section('title', "Permissões do Perfil '{$perfil->nome}'")
 
 @section('content_header')
-    <h1>Permissões do Perfil '{{$perfil->nome}}' <a href="{{route('permissoes.create')}}" class="btn btn-success"> <i class="fas fa-plus-square"></i> Cadastrar</a></h1>
+    <h1>Permissões do Perfil '{{$perfil->nome}}' <a href="{{route('perfis.permissoes.create',$perfil->id)}}" class="btn btn-success"> <i class="fas fa-plus-square"></i> Aicionar permissões </a></h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Dashboard</a></li>

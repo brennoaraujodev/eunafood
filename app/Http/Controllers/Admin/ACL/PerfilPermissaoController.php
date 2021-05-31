@@ -22,7 +22,8 @@ class PerfilPermissaoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($idPerfil){
+    public function index($idPerfil)
+    {
 
         $perfil = $this->perfil->find($idPerfil);
 
@@ -42,9 +43,16 @@ class PerfilPermissaoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($idPerfil)
     {
-        //
+            if (!$perfil = $this->perfil->find($idPerfil))
+        {
+            return redirect()->back();
+        }
+
+        $permissoes = $this->permissao->paginate();
+
+        return view('admin.paginas.perfis.permissoes.create',compact('perfil','permissoes'));
     }
 
     /**
@@ -53,9 +61,24 @@ class PerfilPermissaoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $idPerfil)
     {
-        //
+        if (!$perfil = $this->perfil->find($idPerfil))
+        {
+            return redirect()->back();
+        }
+
+        if (!$request->permissoes || count($request->permissoes) < 1) {
+            return redirect()
+                    ->back()
+                    ->with('info','É necessário selecionar no mínimo uma permissão.');
+        }
+        // dd($request->permissoes);
+        $perfil->permissoes()->attach($request->permissoes);
+
+
+
+        return redirect()->route('perfis.permissoes.index',$perfil->id);
     }
 
     /**
